@@ -1,0 +1,8 @@
+http://jacobmerson.com/2016/01/17/cmake-petsc2.html
+cmake -DPETSC_DIR=/usr/local/petsc -DPETSC_ARCH= -D CMAKE_C_COMPILER=mpicc -D CMAKE_CXX_COMPILER=mpicxx ../
+
+MUMPS
+cmake -DCMAKE_INSTALL_PREFIX=/usr/local/mumps-5.5.1.7 -DBUILD_SHARED_LIBS=on ../
+
+PETSc
+./configure --prefix=/usr/local/petsc  --with-cc=mpicc --with-cxx=mpicxx --with-fc=mpif90  --with-debugging=0 COPTFLAGS='-O3 -march=native -mtune=native' CXXOPTFLAGS='-O3 -march=native -mtune=native' FOPTFLAGS='-O3 -march=native -mtune=native' --with-mumps-lib=[/usr/local/mumps-5.5.1.7/lib/libdmumps.so,/usr/local/mumps-5.5.1.7/lib/libmumps_common.so,/usr/local/mumps-5.5.1.7/lib/libpord.so,/usr/local/mumps-5.5.1.7/lib/libsmumps.so] --with-mumps-include=/usr/local/mumps-5.5.1.7/include  --with-scalapack-lib=/usr/lib/x86_64-linux-gnu/libscalapack-openmpi.s
